@@ -158,19 +158,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7320919851511445209}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3904012581957272379}
-        m_TargetAssemblyTypeName: Botao, Assembly-CSharp
-        m_MethodName: MarcarResposta
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1889317468408301578
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,20 +4,32 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Grupo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+public class Grupo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler
  {
-    public enum Resposta { A1, A2, B, C, D1, D2, E }
-    public Resposta valor;
+    public string valor;
     public bool selected;
+
+    public GameObject [] grupos;
     
     public void OnSelect(BaseEventData eventData){
+        grupos = GameObject.FindGameObjectsWithTag("Grupo");
+        foreach (var grupo in grupos)
+        {
+            grupo.GetComponent<Grupo>().Deselect();
+        }
         GetComponent<Outline>().enabled = true;
         selected = true;
     }
 
-    public void OnDeselect(BaseEventData eventData){
-        GetComponent<Outline>().enabled = false;
-        selected = false;
+    // IDeselectHandler
+    // public void OnDeselect(BaseEventData eventData){
+    //     GetComponent<Outline>().enabled = false;
+    //     selected = false;
+    // }
+
+    public void Deselect(){
+         GetComponent<Outline>().enabled = false;
+         selected = false;
     }
     public void OnPointerEnter(PointerEventData pointerEventData){
         GetComponent<Outline>().enabled = true;

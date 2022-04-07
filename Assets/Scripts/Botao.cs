@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
     
     public GameObject [] grupos;
+    public string valor;
     public void OnPointerEnter(PointerEventData pointerEventData){
         GetComponent<Outline>().enabled = true;
     }
@@ -12,13 +13,13 @@ public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
         GetComponent<Outline>().enabled = false;
     }
 
-    public void MarcarResposta(){
+    public void OnPointerClick(PointerEventData pointerEventData){
         grupos = GameObject.FindGameObjectsWithTag("Grupo");
         foreach (var grupo in grupos)
         {
             if (grupo.GetComponent<Grupo>().selected)
             {
-                Debug.Log(grupo);
+                GetComponent<Image>().sprite = grupo.GetComponent<Image>().sprite;
             }
         }
     }
