@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19312f3fc0a4449ec802d9eb2ba60687, type: 3}
-  m_Name: "Recipientes pl\xE1sticos descart\xE1veis"
+  m_Name: Fontes ornamentais fixas
   m_EditorClassIdentifier: 
-  texto: "Recipientes pl\xE1sticos descart\xE1veis"
-  resposta: 5
+  texto: Fontes ornamentais fixas
+  resposta: 3

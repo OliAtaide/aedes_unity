@@ -13,7 +13,7 @@ public class Criadouros : MonoBehaviour
     {
         for (int i = 0; i < criadouros.Count; i++)
         {
-            string texto = criadouros[0].texto;
+            string texto = criadouros[i].texto;
             slot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = texto;
             // slot.transform.GetChild(1).GetComponent<Botao>().valor = criadouros[0].resposta.ToString();
             GameObject obj = Instantiate(slot, transform.position, transform.rotation);
