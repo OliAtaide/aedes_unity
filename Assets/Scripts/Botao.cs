@@ -5,6 +5,10 @@ public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     
     public GameObject [] grupos;
     public string valor;
+
+    void Start() {
+        valor = null;    
+    }
     public void OnPointerEnter(PointerEventData pointerEventData){
         GetComponent<Outline>().enabled = true;
     }
@@ -20,6 +24,7 @@ public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
             if (grupo.GetComponent<Grupo>().selected)
             {
                 GetComponent<Image>().sprite = grupo.GetComponent<Image>().sprite;
+                valor = grupo.GetComponent<Grupo>().valor;
             }
         }
     }
