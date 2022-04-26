@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
+public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     
     public GameObject [] grupos;
     public string valor;
@@ -17,15 +17,18 @@ public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         GetComponent<Outline>().enabled = false;
     }
 
-    public void OnPointerClick(PointerEventData pointerEventData){
-        grupos = GameObject.FindGameObjectsWithTag("Grupo");
-        foreach (var grupo in grupos)
-        {
-            if (grupo.GetComponent<Grupo>().selected)
-            {
-                GetComponent<Image>().sprite = grupo.GetComponent<Image>().sprite;
-                valor = grupo.GetComponent<Grupo>().valor;
-            }
-        }
-    }
+    // public void OnPointerClick(PointerEventData pointerEventData){
+    //     grupos = GameObject.FindGameObjectsWithTag("Grupo");
+    //     foreach (var grupo in grupos)
+    //     {
+    //         if (grupo.GetComponent<Grupo>().selected)
+    //         {
+    //             GetComponent<Image>().sprite = grupo.GetComponent<Image>().sprite;
+    //             valor = grupo.GetComponent<Grupo>().valor;
+    //         }
+    //     }
+    // }
+
+    
+
 }
