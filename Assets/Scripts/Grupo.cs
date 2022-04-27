@@ -14,6 +14,24 @@ public class Grupo : MonoBehaviour, IPointerEnterHandler,
 
     public GameObject[] grupos;
 
+    public Vector3 initialPosition;
+    public int quantidade, res;
+
+    void Start()
+    {
+        initialPosition = transform.position;
+        res = Screen.width;
+    }
+
+    void Update()
+    {
+        if (res != Screen.width)
+        {
+            initialPosition = transform.position;
+            res = Screen.width;
+        }
+    }
+
 
     public void Deselect()
     {
@@ -36,7 +54,7 @@ public class Grupo : MonoBehaviour, IPointerEnterHandler,
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -65,11 +83,19 @@ public class Grupo : MonoBehaviour, IPointerEnterHandler,
     {
         GameObject criadouro = col.gameObject;
 
-        if(criadouro.tag == "Criadouro" && !dragging){
-            Debug.Log("Foi");
+        if (criadouro.tag == "Criadouro" && !dragging)
+        {
             criadouro.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
             criadouro.GetComponent<Botao>().valor = valor;
-            Destroy(gameObject);
+            quantidade--;
+            if (quantidade == 0)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                transform.position = initialPosition;
+            }
         }
     }
 
