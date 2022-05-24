@@ -27,7 +27,7 @@ public class Grupo : MonoBehaviour, IPointerEnterHandler,
     {
         if (res != Screen.width)
         {
-            initialPosition = transform.position;
+            initialPosition = GetComponent<RectTransform>().anchoredPosition;
             res = Screen.width;
         }
     }
@@ -88,13 +88,15 @@ public class Grupo : MonoBehaviour, IPointerEnterHandler,
             criadouro.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
             criadouro.GetComponent<Botao>().valor = valor;
             quantidade--;
-            if (quantidade == 0)
-            {
+            
+            
                 Destroy(gameObject);
-            }
-            else
+            
+            if (quantidade != 0)
             {
-                transform.position = initialPosition;
+                // transform.position = initialPosition;
+                GameObject copy = Instantiate(gameObject, transform.position, transform.rotation);
+                copy.transform.SetParent(transform.parent, false);
             }
         }
     }
