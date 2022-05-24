@@ -9,4 +9,5 @@ public class Criadouro : ScriptableObject
     public string texto;
     // public int resposta;
     public Resposta resposta;
+    public bool isFull;
 }

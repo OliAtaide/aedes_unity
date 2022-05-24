@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class Grupo : MonoBehaviour, IPointerEnterHandler,
                     IPointerExitHandler,
@@ -85,20 +86,22 @@ public class Grupo : MonoBehaviour, IPointerEnterHandler,
 
         if (criadouro.tag == "Criadouro" && !dragging)
         {
-            criadouro.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
+            criadouro.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = valor;
             criadouro.GetComponent<Botao>().valor = valor;
             quantidade--;
-            
-            
-                Destroy(gameObject);
-            
-            if (quantidade != 0)
+
+            if (quantidade == 0)
             {
-                // transform.position = initialPosition;
-                GameObject copy = Instantiate(gameObject, transform.position, transform.rotation);
-                copy.transform.SetParent(transform.parent, false);
+                Destroy(gameObject);
             }
+
+            GridLayoutGroup glg = transform.parent.GetComponent<GridLayoutGroup>();
+
+            glg.enabled = false;
+            glg.enabled = true;
         }
+
+
     }
 
 }
