@@ -21,7 +21,8 @@ public class Criadouros : MonoBehaviour
         }
     }
 
-    public bool todasRespondidas(){
+    public bool todasRespondidas()
+    {
         for (int i = 0; i < criadouros.Count; i++)
         {
             if (transform.GetChild(i).GetChild(1).GetComponent<Botao>().valor == null)
@@ -32,7 +33,8 @@ public class Criadouros : MonoBehaviour
         return true;
     }
 
-    public void ChecarRespostas(){
+    public void ChecarRespostas()
+    {
         if (todasRespondidas())
         {
             for (int i = 0; i < criadouros.Count; i++)
@@ -43,7 +45,8 @@ public class Criadouros : MonoBehaviour
                 {
                     child.GetComponent<Image>().color = new Color32(64, 255, 64, 255);
                 }
-                else{
+                else
+                {
                     child.GetComponent<Image>().color = new Color32(255, 64, 64, 255);
                 }
             }
@@ -53,6 +56,6 @@ public class Criadouros : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

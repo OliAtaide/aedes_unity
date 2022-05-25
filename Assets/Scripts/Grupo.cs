@@ -86,19 +86,36 @@ public class Grupo : MonoBehaviour, IPointerEnterHandler,
 
         if (criadouro.tag == "Criadouro" && !dragging)
         {
+            Botao botao = criadouro.GetComponent<Botao>();
+
+            if (botao.isFull)
+            {
+                GameObject grupo = GameObject.Find(botao.valor);
+                foreach (var g in Grupos.GrupoObjects)
+                {
+                    if (g.GetComponent<Grupo>().valor == botao.valor)
+                    {
+                        g.GetComponent<Grupo>().quantidade++;
+                        g.SetActive(true);
+                    }
+                }
+            }
+
             criadouro.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = valor;
             criadouro.GetComponent<Botao>().valor = valor;
             quantidade--;
 
             if (quantidade == 0)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
 
             GridLayoutGroup glg = transform.parent.GetComponent<GridLayoutGroup>();
 
             glg.enabled = false;
             glg.enabled = true;
+
+            botao.isFull = true;
         }
 
 

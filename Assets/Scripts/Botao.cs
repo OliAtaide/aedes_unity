@@ -1,34 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
-    
-    public GameObject [] grupos;
-    public string valor;
+public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
 
-    void Start() {
-        valor = null;    
+    public GameObject[] grupos;
+    public string valor;
+    public bool isFull;
+
+    void Start()
+    {
+        valor = null;
     }
-    public void OnPointerEnter(PointerEventData pointerEventData){
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
         GetComponent<Outline>().enabled = true;
     }
 
-    public void OnPointerExit(PointerEventData pointerEventData){
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
         GetComponent<Outline>().enabled = false;
     }
-
-    // public void OnPointerClick(PointerEventData pointerEventData){
-    //     grupos = GameObject.FindGameObjectsWithTag("Grupo");
-    //     foreach (var grupo in grupos)
-    //     {
-    //         if (grupo.GetComponent<Grupo>().selected)
-    //         {
-    //             GetComponent<Image>().sprite = grupo.GetComponent<Image>().sprite;
-    //             valor = grupo.GetComponent<Grupo>().valor;
-    //         }
-    //     }
-    // }
-
-    
-
 }
