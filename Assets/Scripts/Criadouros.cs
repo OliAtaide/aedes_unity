@@ -15,9 +15,9 @@ public class Criadouros : MonoBehaviour
         {
             string texto = criadouros[i].texto;
             slot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = texto;
-            // slot.transform.GetChild(1).GetComponent<Botao>().valor = criadouros[0].resposta.ToString();
             GameObject obj = Instantiate(slot, transform.position, transform.rotation);
             obj.transform.SetParent(transform, false);
+            obj.name = criadouros[i].texto;
         }
     }
 
@@ -53,9 +53,21 @@ public class Criadouros : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TentarNovamente()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            Image img = child.GetChild(1).GetComponent<Image>();
+            TextMeshProUGUI tmp = child.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+            tmp.text = "";
+            img.color = new Color32(246, 107, 59, 255);
+        }
 
+        foreach (var c in Grupos.GrupoObjects)
+        {
+            c.SetActive(true);
+            c.GetComponent<Outline>().enabled = false;
+        }
     }
 }
