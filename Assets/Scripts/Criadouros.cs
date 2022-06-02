@@ -63,11 +63,5 @@ public class Criadouros : MonoBehaviour
             tmp.text = "";
             img.color = new Color32(246, 107, 59, 255);
         }
-
-        foreach (var c in Grupos.GrupoObjects)
-        {
-            c.SetActive(true);
-            c.GetComponent<Outline>().enabled = false;
-        }
     }
 }

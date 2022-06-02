@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Botao : MonoBehaviour
 {
 
     public GameObject[] grupos;
@@ -11,14 +11,5 @@ public class Botao : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Start()
     {
         valor = null;
-    }
-    public void OnPointerEnter(PointerEventData pointerEventData)
-    {
-        GetComponent<Outline>().enabled = true;
-    }
-
-    public void OnPointerExit(PointerEventData pointerEventData)
-    {
-        GetComponent<Outline>().enabled = false;
     }
 }

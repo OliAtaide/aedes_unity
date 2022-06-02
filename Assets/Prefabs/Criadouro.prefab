@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 7320919851511445208}
   - component: {fileID: 7320919851511445209}
   - component: {fileID: 1849881679546955225}
-  - component: {fileID: 1889317468408301578}
   - component: {fileID: 3904012581957272379}
   - component: {fileID: 4024074660423498602}
   - component: {fileID: 3026683047865282703}
@@ -299,21 +298,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1889317468408301578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7320919851511445211}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 10, y: -10}
-  m_UseGraphicAlpha: 1
 --- !u!114 &3904012581957272379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grupos: []
   valor: 
+  isFull: 0
 --- !u!61 &4024074660423498602
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -478,7 +463,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
