@@ -11,9 +11,10 @@ public class Grupo : MonoBehaviour, IDragHandler, IEndDragHandler
     public bool used, dragging;
 
     public GameObject[] grupos;
+    public Grupos grupoList;
 
     public Vector3 initialPosition;
-    public int quantidade, res;
+    public int quantidade, res, index;
 
     void Start()
     {
@@ -50,8 +51,15 @@ public class Grupo : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             Botao botao = criadouro.GetComponent<Botao>();
 
+            if (botao.isFull)
+            {
+                grupoList.criarGrupo(botao.index);
+                grupoList.instanciarGrupo(botao.index);
+            }
+
             criadouro.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = valor;
             criadouro.GetComponent<Botao>().valor = valor;
+            criadouro.GetComponent<Botao>().index = index;
 
             Destroy(gameObject);
 
