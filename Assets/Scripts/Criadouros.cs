@@ -7,6 +7,7 @@ using TMPro;
 public class Criadouros : MonoBehaviour
 {
     public GameObject slot;
+    public TextMeshProUGUI resultado;
     public List<Criadouro> criadouros;
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class Criadouros : MonoBehaviour
     {
         if (todasRespondidas())
         {
+            int acertos = 0;
             for (int i = 0; i < criadouros.Count; i++)
             {
                 string respota = criadouros[i].resposta.ToString();
@@ -44,12 +46,14 @@ public class Criadouros : MonoBehaviour
                 if (respota == child.GetComponent<Botao>().valor)
                 {
                     child.GetComponent<Image>().color = new Color32(64, 255, 64, 255);
+                    acertos++;
                 }
                 else
                 {
                     child.GetComponent<Image>().color = new Color32(255, 64, 64, 255);
                 }
             }
+            resultado.text = "Você acertou " + acertos + " de 23 questões";
         }
     }
 
